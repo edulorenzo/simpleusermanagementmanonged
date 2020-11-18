@@ -20,7 +20,7 @@ namespace simpleusermanagement.Helpers
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // connect to sqllite
-            //options.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase"));
+            //options.UseSqlServer(Configuration.GetConnectionString("database"));
         }
         //get me some users
         public DbSet<User> Users { get; set; }

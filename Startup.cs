@@ -17,6 +17,8 @@ using System.Threading.Tasks;
 using System.Data;
 using simpleusermanagement.Helpers;
 using simpleusermanagement.Services;
+using AutoMapper;
+
 
 namespace simpleusermanagement
 {
@@ -44,15 +46,15 @@ namespace simpleusermanagement
 
             // use sql server db in production and sqlite db in development
             //but since still in dev
-            //if (_env.IsProduction())
+            if (_env.IsProduction())
                 services.AddDbContext<DataContext>();
-            //else
-             //   services.AddDbContext<DataContext, SqliteDataContext>();
+            else
+                services.AddDbContext<DataContext, SqliteDataContext>();
 
             services.AddCors();
             services.AddControllers();
-            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            
             // configure strongly typed settings objects
             var appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
