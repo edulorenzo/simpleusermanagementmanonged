@@ -29,6 +29,16 @@ namespace simpleusermanagement.Controllers
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
+        public UserController(
+            IUserService userService,
+            IMapper mapper,
+            IOptions<AppSettings> appSettings)
+        {
+            _userService = userService;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+        }
+
         // GET: UserController
         public ActionResult Index()
         {
