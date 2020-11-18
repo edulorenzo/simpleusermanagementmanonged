@@ -12,10 +12,10 @@ namespace simpleusermanagement.Helpers
 {
     public class DataContext : DbContext    
     {
-        protected readonly IConfiguration configuration;
+        protected readonly IConfiguration Configuration;
         public DataContext(IConfiguration configuration)
         {
-            Configuration = configuration1;
+            Configuration = configuration;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
