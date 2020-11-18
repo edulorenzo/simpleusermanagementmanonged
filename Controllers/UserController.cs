@@ -129,7 +129,7 @@ namespace simpleusermanagement.Controllers
             var user = _userService.Authenticate(model.email, model.Password);
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "email or password is incorrect" });
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
@@ -152,6 +152,7 @@ namespace simpleusermanagement.Controllers
                 Username = user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Email = user.email,
                 Token = tokenString
             });
         }

@@ -9,7 +9,7 @@ namespace simpleusermanagement.Services
 {
     public interface IUserService
     {
-        User Authenticate(string username, string password);
+        User Authenticate(string email, string password);
         IEnumerable<User> GetAll();
         User GetById(int id);
         User Create(User user, string password);
@@ -31,7 +31,7 @@ namespace simpleusermanagement.Services
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 return null;
 
-            var user = _context.Users.SingleOrDefault(x => x.Username == email);
+            var user = _context.Users.SingleOrDefault(x => x.email == email);
 
             // check if username exists
             if (user == null)
