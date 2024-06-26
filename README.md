@@ -1,5 +1,5 @@
 # simpleusermanagement
-small exercise to get my feet wet on .NetCore
+small exercise to get my feet wet on .NetCore and to have something to present to the community.
 
 this should be an api that allow basic CRUD operations for users
 additional functionality is the use of jwt token for auth
